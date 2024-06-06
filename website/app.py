@@ -63,6 +63,6 @@ elif st.session_state.page == 'creative_demo':
 
 # Add a button to navigate back to the main page from the creative demo page
 if st.session_state.page == 'creative_demo':
-    if st.button("Go Back to Main Page", key='back_to_main'):
+    if st.button("Go Back to Main Page", key='back_to_main_app'):
         st.session_state.page = 'main'
         st.experimental_rerun()
