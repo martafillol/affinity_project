@@ -5,6 +5,11 @@ nltk
 spacymoji
 wheel
 nbresult
+pandas
+sklearn
+requests
+xmltodict
+matplotlib
 colorama
 ipdb
 ipykernel
