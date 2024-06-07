@@ -1,0 +1,28 @@
+
+
+
+body {
+  font-family: Overpass;
+  background-color: #f9ebc88d;
+  color: #644536;
+  text-align: center;
+  padding: 25px;
+}
+
+h1, h2, h3 {
+  font-family: Roboto;
+  color: #0C0A3E;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background-color: #BA6E6E;
+  padding: 15px;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+a:hover {
+  background-color: #A36060;
+}
