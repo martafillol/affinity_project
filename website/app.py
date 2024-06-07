@@ -12,24 +12,28 @@ st.set_page_config(
 )
 CSS = """
 
-
-body {
-  font-family: Overpass;
-  background-color: #f9ebc88d;
-  color: #644536;
-  text-align: center;
-  padding: 25px;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
 h1, h2, h3 {
-  font-family: Roboto;
-  color: #0C0A3E;
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #ea6106;
+  font-size: 2rem;
+  text-align: justify;
 }
-
+p {
+  font-family: "Lexend", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  font-size: 1rem;
+}
 a {
   text-decoration: none;
   color: white;
-  background-color: #BA6E6E;
+  background-color: #ea6106;
   padding: 15px;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -43,28 +47,30 @@ a:hover {
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
 client = OpenAI()
+best_fit_interest = ['sports','movies','children','party','gaming'][random.randint(0, 4)]
+avg_age_of_cluster = random.randint(18, 80)
+top_5_other_interests = ['fashion', 'gaming', 'movies'][random.randint(0, 2)]
 
+def generate_prompt(best_fit_interest, avg_age_of_cluster, top_5_other_interests):
+    return f'''create a realistic advertisement image based on this topic: {best_fit_interest}
+               for a user of age: {int(avg_age_of_cluster)}
+               with top 5 other interests: {top_5_other_interests}.'''
 
-def generate_prompt(topic, user_age, gender, city, interest):
-    return f'''create an image based on this topic: {topic}
-               for this website: {st.session_state.page}
-               for a user of age: {user_age}, gender: {gender}
-               that lives in the city of: {city}. That is interested in {interest}.'''
 
 # Generate a random user context
-topic = ['sports','fashion','gaming','movies'][random.randint(0, 3)]
-user_age = random.randint(18, 80)
-genders = ['male', 'female'][random.randint(0, 1)]
-cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia', 'Phoenix', 'San Antonio', 'San Diego', 'Dallas']
-interest = 'User interest'
-gender = random.choice(genders)
-city = random.choice(cities)
+# topic = ['sports','fashion','gaming','movies'][random.randint(0, 3)]
+# user_age = random.randint(18, 80)
+# genders = ['male', 'female'][random.randint(0, 1)]
+# cities = ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Philadelphia', 'Phoenix', 'San Antonio', 'San Diego', 'Dallas']
+# interest = 'User interest'
+# gender = random.choice(genders)
+# city = random.choice(cities)
 
 # Initialize session state
 if 'page' not in st.session_state:
     st.session_state.page = 'main'
 
-prompt = generate_prompt(topic, user_age, gender, city, interest)
+prompt = generate_prompt(best_fit_interest, avg_age_of_cluster, top_5_other_interests)
 
 response = client.images.generate(
     model="dall-e-3",
@@ -74,8 +80,8 @@ response = client.images.generate(
 
 
 def main_page():
-    st.title("Title")
-    st.write("This is the main page.")
+    st.title("Affinity")
+    st.write("Predicting the right Ad")
 
     # Create a form with a submit button
     with st.form(key='my_form'):
