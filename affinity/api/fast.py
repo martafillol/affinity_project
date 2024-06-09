@@ -10,6 +10,9 @@ app = FastAPI()
 class URLInput(BaseModel):
     urls: List[str]
 
+@app.get("/")
+def root():
+    return {'greeting': 'Hello'}
 
 @app.post("/process-urls/")
 async def process_urls(url_input: URLInput):
@@ -25,5 +28,7 @@ async def process_urls(url_input: URLInput):
         return {"best_fit_interest": best_fit_interest}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
 # Command to run the server: uvicorn api:app --reload
 # uvicorn api.fast:app --reload
