@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
-from base.base_model import *
+from affinity.interface.main import main
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -14,20 +14,11 @@ class URLInput(BaseModel):
 def root():
     return {'greeting': 'Hello'}
 
-@app.post("/process-urls/")
-async def process_urls(url_input: URLInput):
-    try:
-        # Scrape and embed text data from the given URLs
-        texts = scraper_results(url_input.urls)
-        text_embedding = embed(' '.join(texts))
-        # Calculate cosine similarity between the text embedding and interest embeddings
-        similarities = interests['embedding'].apply(lambda x: cosine_similarity([x], [text_embedding])[0][0])
-        # Find the best fit interest
-        best_fit_index = similarities.idxmax()
-        best_fit_interest = interests.loc[best_fit_index, 'interest']
-        return {"best_fit_interest": best_fit_interest}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+@app.get("/process-urls/")
+async def process_urls(url_input: str):
+    best_fit_interest, best_cluster, avg_age_of_cluster, top_5_other_interests = main(url_input)
+    return best_fit_interest, int(avg_age_of_cluster), str(top_5_other_interests)
+
 
 
 # Command to run the server: uvicorn api:app --reload
