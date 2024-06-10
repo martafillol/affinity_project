@@ -69,7 +69,7 @@ interests = pd.DataFrame({"interest": targets})
 interests["embedding"] = interests.interest.apply(embed)
 
 # Streamlit app
-st.title('URL Interest Analyzer')
+st.title('Affinity at scale')
 
 url = st.text_input('Enter a URL to analyze:', 'https://www.vogue.com/fashion')
 

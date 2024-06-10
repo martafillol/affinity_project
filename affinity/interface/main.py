@@ -17,4 +17,8 @@ targets = [
     "Food and dining", "DIY and crafts", "Beauty", "Science", "Politics"
 ]
 
-#from context.model import 
+#from context.model import
+
+def calculate_similarity
+# take targets from audience.model
+# 
