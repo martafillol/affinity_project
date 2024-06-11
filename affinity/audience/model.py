@@ -4,4 +4,4 @@
 #return list of target interests
 
 import pandas as pd
-clusters = pd.read_csv("affinity/data/data_v2.csv")
+clusters = pd.read_csv("affinity/data/new_data_users.csv")
