@@ -1,4 +1,6 @@
 # import requests
+response = requests.get(url=, params={"url"})
+
 # from bs4 import BeautifulSoup
 # import pandas as pd
 # import spacy
@@ -75,7 +77,7 @@
 
 
 # if button:
-#     prediction = requests.get("api.com", params=)
+#     prediction = requests.get("https://affinity-dzgegmrtba-no.a.run.app/", params=)
 #     st.w
 
 # if st.button('Analyze'):
