@@ -1,14 +1,8 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
 import random
 import requests
-from bs4 import BeautifulSoup
 from openai import OpenAI
-import os
-import spacy
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+import re
 
 
 st.set_page_config(
@@ -53,56 +47,41 @@ a:hover {
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
 
-# Initialize session state
-if 'page' not in st.session_state:
-    st.session_state.page = 'main'
 
+st.title("Affinity")
+st.write("Predicting the right Ad")
 
-    st.title("Affinity")
-    st.write("Predicting the right Ad")
+# Create a form with a submit button
+with st.form(key='my_form'):
 
-    # Create a form with a submit button
-    with st.form(key='my_form'):
+    st.write("Fill in the form and press submit to go to the Creative Demo page")
+    user_input = st.text_input(label="Enter text here", max_chars=200)
+    url = user_input
 
-        st.write("Fill in the form and press submit to go to the Creative Demo page")
-        user_input = st.text_input(label="Enter text here", max_chars=200)
-        url = user_input
-        response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url})
-        st.write(response.json())
-        submit_button = st.form_submit_button(label='Submit')
-        if submit_button:
+    submit_button = st.form_submit_button(label='Submit')
+    if submit_button:
+        response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
+        best_fit_interest = response[0]
+        avg_age_of_cluster = response[1]
+        top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
 
-            client = OpenAI()
-            best_fit_interest = ['sports','movies','children','party','gaming'][random.randint(0, 4)]
-            avg_age_of_cluster = random.randint(18, 80)
-            top_5_other_interests = ['fashion', 'gaming', 'movies'][random.randint(0, 2)]
-            prompt =    f'''create a realistic advertisement image based on this topic: {best_fit_interest}
-                        for a user of age: {int(avg_age_of_cluster)}
-                        with top 5 other interests: {top_5_other_interests}.'''
-            response = client.images.generate(
-            model="dall-e-3",
-            prompt=prompt,
-            size="1024x1024"
-            )
-            st.session_state.page = 'creative_demo'
-            st.session_state['user_input'] = user_input
-            st.session_state['prompt'] = prompt
-            st.session_state['response'] = response
+        client = OpenAI()
 
-    # When the submit button is pressed, set session state to show the creative demo page
+        prompt =    f'''create a realistic advertisement image based on this topic: {best_fit_interest}
+                    for a user of age: {int(avg_age_of_cluster)}
+                    with other top interests: {top_5_other_interests}.'''
+        response = client.images.generate(
+        model="dall-e-3",
+        prompt=prompt,
+        size="1024x1024"
+        )
+        if response.data and response.data[0] and response.data[0].url:
+            st.success('Analysis complete!')
+            st.write('**Best Fit Interest:**', best_fit_interest)
+            st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
+            st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
+            image_url = response.data[0].url
+            st.image(image_url, caption="Generated Image", use_column_width=True)
 
-
-# Display the appropriate page based on the session state
-if st.session_state.page == 'main':
-    main_page()
-elif st.session_state.page == 'creative_demo':
-    from creative_demo import creative_demo_page
-    creative_demo_page(st.session_state['prompt'], st.session_state['response'])
-
-# Add a button to navigate back to the main page from the creative demo page
-if st.session_state.page == 'creative_demo':
-    if st.button("Go Back to Main Page", key='back_to_main_app'):
-        st.session_state.page = 'main'
-        st.experimental_rerun()
-
-#
+        else:
+            st.write("No image was generated.")
