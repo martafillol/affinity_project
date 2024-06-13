@@ -213,49 +213,49 @@ with st.form(key='my_form'):
         top_5_other_interests = re.findall(r'\b[^\W\d_]+\b', response["top_5_other_interests"])[:-2]
         cluster = int(response["best_cluster"])
 
-    clusters_ai = [
-        {
-            "age_range": (21, 30),
-            "interests": ["music", "travel", "movies", "technology", "fitness"],
-            "education": ["high school", "college", "associate degree", "bachelor's degree"],
-            "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
-            "income_range": (30000, 80000),
-            "car_inspo": "https://www.seat.es/coches/ibiza/modelo",
-            "cluster_name": "Young butterflies",
-            "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences."
-        },
-        {
-            "age_range": (29, 35),
-            "interests": ["travel", "pets", "books", "news & politics", "gardening", "health & wellness", "economy"],
-            "education": ["college", "master's degree", "professional degree"],
-            "family_status": {"Married": 0.60, "Single": 0.40, "Kids": 0.40},
-            "income_range": (40000, 100000),
-            "car_inspo": "https://www.seat.es/coches/arona/modelo",
-            "cluster_name": "Mature heroes",
-            "description": "Grounded individualist is reputable, While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
-        },
-        {
-            "age_range": (35, 49),
-            "interests": ["fitness", "fashion", "adventure", "ski", "luxury"],
-            "education": ["high school", "bachelor's degree", "master's degree", "doctorate"],
-            "family_status": {"Married": 0.50, "Single": 0.50, "Kids": 0.50},
-            "income_range": (50000, 150000),
-            "car_inspo": "https://www.cupraofficial.es/coches/leon",
-            "cluster_name": "Ambitious rebels",
-            "description": "Individualist, very disciplined and focused, eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
-        }
-    ]
-    if cluster == 0:
-        cluster_ai = 0
-    elif cluster == 1:
-        cluster_ai = 0
-    elif cluster == 2:
-        cluster_ai = 1
-    elif cluster == 3:
-        cluster_ai = 1
-    else:
-        cluster_ai = 2
-    selected_cluster = clusters_ai[cluster_ai]
+        clusters_ai = [
+            {
+                "age_range": (21, 30),
+                "interests": ["music", "travel", "movies", "technology", "fitness"],
+                "education": ["high school", "college", "associate degree", "bachelor's degree"],
+                "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
+                "income_range": (30000, 80000),
+                "car_inspo": "https://www.seat.es/coches/ibiza/modelo",
+                "cluster_name": "Young butterflies",
+                "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences."
+            },
+            {
+                "age_range": (29, 35),
+                "interests": ["travel", "pets", "books", "news & politics", "gardening", "health & wellness", "economy"],
+                "education": ["college", "master's degree", "professional degree"],
+                "family_status": {"Married": 0.60, "Single": 0.40, "Kids": 0.40},
+                "income_range": (40000, 100000),
+                "car_inspo": "https://www.seat.es/coches/arona/modelo",
+                "cluster_name": "Mature heroes",
+                "description": "Grounded individualist is reputable, While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+            },
+            {
+                "age_range": (35, 49),
+                "interests": ["fitness", "fashion", "adventure", "ski", "luxury"],
+                "education": ["high school", "bachelor's degree", "master's degree", "doctorate"],
+                "family_status": {"Married": 0.50, "Single": 0.50, "Kids": 0.50},
+                "income_range": (50000, 150000),
+                "car_inspo": "https://www.cupraofficial.es/coches/leon",
+                "cluster_name": "Ambitious rebels",
+                "description": "Individualist, very disciplined and focused, eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+            }
+        ]
+        if cluster == 0:
+            cluster_ai = 0
+        elif cluster == 1:
+            cluster_ai = 0
+        elif cluster == 2:
+            cluster_ai = 1
+        elif cluster == 3:
+            cluster_ai = 1
+        else:
+            cluster_ai = 2
+        selected_cluster = clusters_ai[cluster_ai]
 
     client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
     prompt = f'''Create a realistic advertisement image based on these topics for a car product:
