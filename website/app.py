@@ -207,11 +207,11 @@ with st.form(key='my_form'):
     url = user_input
     submit_button = st.form_submit_button(label='Submit')
     if submit_button:
-    response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input": url}).json()
-    best_fit_interest = response["best_fit_interest"]
-    avg_age_of_cluster = response["avg_age_of_cluster"]
-    top_5_other_interests = re.findall(r'\b[^\W\d_]+\b', response["top_5_other_interests"])[:-2]
-    cluster = int(response["best_cluster"])
+        response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input": url}).json()
+        best_fit_interest = response["best_fit_interest"]
+        avg_age_of_cluster = response["avg_age_of_cluster"]
+        top_5_other_interests = re.findall(r'\b[^\W\d_]+\b', response["top_5_other_interests"])[:-2]
+        cluster = int(response["best_cluster"])
 
     if cluster == 0:
         cluster_ai = 0
