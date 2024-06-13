@@ -208,9 +208,9 @@ with st.form(key='my_form'):
     submit_button = st.form_submit_button(label='Submit')
     if submit_button:
         response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
-        best_fit_interest = response[0]
-        avg_age_of_cluster = response[1]
-        top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
+        best_fit_interest = response["best_fit_interest"]
+        avg_age_of_cluster = response["avg_age_of_cluster"]
+        top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response["top_5_other_interests"])[:-2]
         clusters = [
     {
         "age_range": (21, 30),
@@ -243,9 +243,6 @@ with st.form(key='my_form'):
         "description": "individualist, very disciplined. and focused . eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
     }
 ]
-
-
-
 
         client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
         prompt = f'''Create a realistic advertisement image based on these topics for a car product:
