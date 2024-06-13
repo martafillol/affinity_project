@@ -205,7 +205,7 @@ def inject_banner(url, banner_path, output_file, width, height):
             driver.quit()
 
 
-banner_path = ["banners/YOUNG.png","banners/MATURE.png","banners/AMBITIOUS.png"]
+banner_path = ["website/banners/YOUNG.png","website/banners/MATURE.png","website/banners/AMBITIOUS.png"]
 output_file = "injected_banner_screenshot.png"
 width = 728
 height = 1080
@@ -232,7 +232,7 @@ if button:
     elif cluster == 5:
         banner_path = banner_path[2]
 
-    st.write(banner_path)
+    st.write(banner_path[0])
 
     injected = inject_banner(url, banner_path[0], output_file, width, height)
 
