@@ -212,11 +212,11 @@ height = 1080
 
 if button:
     response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
-    best_fit_interest = response[0]
-    avg_age_of_cluster = response[2]
-    top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[3])[:-2]
+    best_fit_interest = response["best_fit_interest"]
+    avg_age_of_cluster = response["avg_age_of_cluster"]
+    top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response["top_5_other_interests"])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
-    cluster = response[1]
+    cluster = int(response["best_cluster"])
     st.write(response)
 
     if cluster == 0:
@@ -232,9 +232,8 @@ if button:
     elif cluster == 5:
         banner_path = banner_path[2]
     else:
-        st.error('We dont have scenario for this cluster')
+        banner_path = banner_path[3]
 
-    st.write(banner_path)
 
     injected = inject_banner(url, banner_path[1], output_file, width, height)
 
