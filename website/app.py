@@ -247,7 +247,7 @@ with st.form(key='my_form'):
 
 
 
-        client = OpenAI()
+        client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
         prompt = f'''Create a realistic advertisement image based on these topics for a car product:
         Possible interests: {top_5_other_interests},
         Average age: {avg_age_of_cluster},
