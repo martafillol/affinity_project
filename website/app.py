@@ -257,23 +257,23 @@ with st.form(key='my_form'):
             cluster_ai = 2
         selected_cluster = clusters_ai[cluster_ai]
 
-    client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
-    prompt = f'''Create a realistic advertisement image based on these topics for a car product:
-    Possible interests: {top_5_other_interests},
-    Average age: {avg_age_of_cluster},
-    Specialize the advertisement in the interest: {best_fit_interest},
-    Cluster name: {selected_cluster['cluster_name']},
-    Cluster description: {selected_cluster['description']},
-    Car inspiration: {selected_cluster['car_inspo']}'''
-    response = client.images.generate(
-        model="dall-e-3",
-        prompt=prompt,
-        size="1024x1024"
-    )
-    if response.data and response.data[0] and response.data[0].url:
-        st.success('Analysis complete!')
-        st.write('**Best Fit Interest:**', best_fit_interest)
-        image_url = response.data[0].url
-        st.image(image_url, caption="Generated Image", use_column_width=True)
-    else:
-        st.write("No image was generated.")
+        client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
+        prompt = f'''Create a realistic advertisement image based on these topics for a car product:
+        Possible interests: {top_5_other_interests},
+        Average age: {avg_age_of_cluster},
+        Specialize the advertisement in the interest: {best_fit_interest},
+        Cluster name: {selected_cluster['cluster_name']},
+        Cluster description: {selected_cluster['description']},
+        Car inspiration: {selected_cluster['car_inspo']}'''
+        response = client.images.generate(
+            model="dall-e-3",
+            prompt=prompt,
+            size="1024x1024"
+        )
+        if response.data and response.data[0] and response.data[0].url:
+            st.success('Analysis complete!')
+            st.write('**Best Fit Interest:**', best_fit_interest)
+            image_url = response.data[0].url
+            st.image(image_url, caption="Generated Image", use_column_width=True)
+        else:
+            st.write("No image was generated.")
