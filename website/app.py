@@ -40,7 +40,7 @@ h1, h2, h3 {
 
 .centered-title {
     text-align: center;
-    font-size: 2.5em; /* Adjust the font size as needed */
+    font-size: 2.5em;
     font-weight: bold;
 }
 
@@ -53,23 +53,20 @@ h1, h2, h3 {
 p {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 200;
     font-style: normal;
-    color: white;
+    color: black;
     font-size: 1rem;
 }
 
 a {
     text-decoration: none;
+    display: none;
     color: white;
     background-color: #ea6106;
     padding: 15px;
     border-radius: 5px;
     transition: 0.3s ease;
-}
-
-a:hover {
-    background-color: #A36060;
 }
 """
 
