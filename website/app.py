@@ -74,78 +74,8 @@ st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
 st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_html=True)
 
-# Create a form with a submit button
-# with st.form(image.pngkey='my_form'):
-
-#     st.write("Fill in the form and press submit to go to the Creative Demo page")
-#     user_input = st.text_input(label="Enter text here", max_chars=200)
-#     url = user_input
-
-#     submit_button = st.form_submit_button(label='Submit')
-#     if submit_button:
-#         response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
-#         best_fit_interest = response[0]
-#         avg_age_of_cluster = response[1]
-#         top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
-#         clusters = [
-#     {
-#         "age_range": (21, 30),
-#         "interests": ["music", "travel", "movies", "technology", "fitness"],
-#         "education": ["high school", "college", "associate degree", "bachelor's degree"],
-#         "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
-#         "income_range": (30000, 80000),
-#         "car_inspo": "https://www.seat.es/coches/ibiza/modelo",
-#         "cluster_name": "Young butterflies",
-#         "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences. The New Ibiza is most likely their first car which is affordable at their stage of career. Urban lifestyle."
-#     },
-#     {
-#         "age_range": (29, 35),
-#         "interests": ["travel", "pets", "books", "news & politics", "gardening", "health & wellness", "economy"],
-#         "education": ["college", "master's degree", "professional degree"],
-#         "family_status": {"Married": 0.60, "Single": 0.40, "Kids": 0.40},
-#         "income_range": (40000, 100000),
-#         "car_inspo": "https://www.seat.es/coches/arona/modelo",
-#         "cluster_name": "Mature heroes",
-#         "description": "Grounded individualist is reputable, and people around tend to ask for advice. While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
-#     },
-#     {
-#         "age_range": (35, 49),
-#         "interests": ["fitness", "fashion", "adventure", "ski", "luxury"],
-#         "education": ["high school", "bachelor's degree", "master's degree", "doctorate"],
-#         "family_status": {"Married": 0.50, "Single": 0.50, "Kids": 0.50},
-#         "income_range": (50000, 150000),
-#         "car_inspo": "https://www.cupraofficial.es/coches/leon",
-#         "cluster_name": "Ambitious rebels",
-#         "description": "individualist, very disciplined. and focused . eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
-#     }
-# ]
 
 
-
-
-        # client = OpenAI()
-        # prompt = f'''Create a realistic advertisement image based on these topics for a car product:
-        # Possible interests: {top_5_other_interests},
-        # Average age: {avg_age_of_cluster},
-        # Specialize the advertisement in the interest: {best_fit_interest},
-        # Cluster name: {clusters['cluster_name']},
-        # Cluster description: {clusters['description']},
-        # Car inspiration: {clusters['car_inspo']}'''
-        # response = client.images.generate(
-        # model="dall-e-3",
-        # prompt=prompt,
-        # size="1024x1024"
-        # )
-        # if response.data and response.data[0] and response.data[0].url:
-        #     st.success('Analysis complete!')
-        #     st.write('**Best Fit Interest:**', best_fit_interest)
-        #     st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
-        #     st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
-        #     image_url = response.data[0].url
-        #     st.image(image_url, caption="Generated Image", use_column_width=True)
-
-        # else:
-        #     st.write("No image was generated.")
 
 ##################################################################################
 #--------------------------------------------------------------------------------#
@@ -264,13 +194,79 @@ if button:
 
 
 
+##################################################################################
+#--------------------------------------------------------------------------------#
+##################################################################################
+
+
+st.markdown("<h2 class='centered-title'>AI generated Add</h2>", unsafe_allow_html=True)
+
+with st.form(key='my_form'):
+    st.write("")
+    user_input = st.text_input(label="Enter text here", max_chars=200)
+    url = user_input
+    submit_button = st.form_submit_button(label='Submit')
+    if submit_button:
+        response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
+        best_fit_interest = response[0]
+        avg_age_of_cluster = response[1]
+        top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
+        clusters = [
+    {
+        "age_range": (21, 30),
+        "interests": ["music", "travel", "movies", "technology", "fitness"],
+        "education": ["high school", "college", "associate degree", "bachelor's degree"],
+        "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
+        "income_range": (30000, 80000),
+        "car_inspo": "https://www.seat.es/coches/ibiza/modelo",
+        "cluster_name": "Young butterflies",
+        "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences. The New Ibiza is most likely their first car which is affordable at their stage of career. Urban lifestyle."
+    },
+    {
+        "age_range": (29, 35),
+        "interests": ["travel", "pets", "books", "news & politics", "gardening", "health & wellness", "economy"],
+        "education": ["college", "master's degree", "professional degree"],
+        "family_status": {"Married": 0.60, "Single": 0.40, "Kids": 0.40},
+        "income_range": (40000, 100000),
+        "car_inspo": "https://www.seat.es/coches/arona/modelo",
+        "cluster_name": "Mature heroes",
+        "description": "Grounded individualist is reputable, and people around tend to ask for advice. While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+    },
+    {
+        "age_range": (35, 49),
+        "interests": ["fitness", "fashion", "adventure", "ski", "luxury"],
+        "education": ["high school", "bachelor's degree", "master's degree", "doctorate"],
+        "family_status": {"Married": 0.50, "Single": 0.50, "Kids": 0.50},
+        "income_range": (50000, 150000),
+        "car_inspo": "https://www.cupraofficial.es/coches/leon",
+        "cluster_name": "Ambitious rebels",
+        "description": "individualist, very disciplined. and focused . eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+    }
+]
 
 
 
 
-#########
+        client = OpenAI()
+        prompt = f'''Create a realistic advertisement image based on these topics for a car product:
+        Possible interests: {top_5_other_interests},
+        Average age: {avg_age_of_cluster},
+        Specialize the advertisement in the interest: {best_fit_interest},
+        Cluster name: {clusters['cluster_name']},
+        Cluster description: {clusters['description']},
+        Car inspiration: {clusters['car_inspo']}'''
+        response = client.images.generate(
+        model="dall-e-3",
+        prompt=prompt,
+        size="1024x1024"
+        )
+        if response.data and response.data[0] and response.data[0].url:
+            st.success('Analysis complete!')
+            st.write('**Best Fit Interest:**', best_fit_interest)
+            st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
+            st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
+            image_url = response.data[0].url
+            st.image(image_url, caption="Generated Image", use_column_width=True)
 
-# def main(url):
-#     best_fit_interest= get_best_interest(url)
-#     best_cluster, avg_age_of_cluster, top_5_other_interests = analyze_best_cluster(clusters,best_fit_interest)
-#     return best_fit_interest, best_cluster, avg_age_of_cluster, top_5_other_interests
+        else:
+            st.write("No image was generated.")
