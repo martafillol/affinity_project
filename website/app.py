@@ -42,7 +42,7 @@ h1, h2, h3 {
 p {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 100;
+    font-weight: 300;
     font-style: normal;
     color: black;
     font-size: 1rem;
@@ -55,16 +55,18 @@ a {
     padding: 15px;
     border-radius: 5px;
     transition: 0.3s ease;
+    display: none;
 }
 
 a:hover {
     background-color: #A36060;
+
 }
 """
 
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
-st.markdown("<h1 class='centered-title'>Affinity</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_html=True)
 
 # Create a form with a submit button
 # with st.form(image.pngkey='my_form'):
