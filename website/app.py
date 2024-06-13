@@ -193,6 +193,9 @@ if button:
 
 
 st.markdown("<br><br><br>", unsafe_allow_html=True)
+image_path = "website/banners/Design-PNG-Picture.png"  # Make sure this path is correct relative to your script
+st.image(image_path, caption='', use_column_width=True)
+
 ##################################################################################
 #--------------------------------------------------------------------------------#
 ##################################################################################
