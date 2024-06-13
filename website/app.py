@@ -11,66 +11,60 @@ from webdriver_manager.core.os_manager import ChromeType
 import time
 import base64
 
-st.set_page_config(
-    page_title="Affinity Adv",
-    page_icon="🪲",
-    layout="centered",
-)
 CSS = """
-
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
+
 body {
-        background-color: #f0f0f0; /* Replace with your desired color */
-    }
+    background-color: #f0f0f0; /* Replace with your desired color */
+}
+
 h1, h2, h3 {
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  color: #ea6106;
-  font-size: 2rem;
-  text-align: justify;
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #ea6106;
+    font-size: 2rem;
+    text-align: justify;
 }
 
 .st-emotion-cache-1jzia57 .e1nzilvr3 {
     visibility: hidden;
     display: none;
 }
+
 .centered-title {
-        text-align: center;
-        font-size: 2.5em; /* Adjust the font size as needed */
-        font-weight: bold;
-    }
-p {
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  color: white;
-  font-size: 1rem;
+    text-align: center;
+    font-size: 2.5em; /* Adjust the font size as needed */
+    font-weight: bold;
 }
+
+p {
+    font-family: "Lexend", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    color: white;
+    font-size: 1rem;
+}
+
 a {
-  text-decoration: none;
-  color: white;
-  background-color: #ea6106;
-  padding: 15px;
-  border-radius: 5px;
-  transition: 0.3s ease;
+    text-decoration: none;
+    color: white;
+    background-color: #ea6106;
+    padding: 15px;
+    border-radius: 5px;
+    transition: 0.3s ease;
 }
 
 a:hover {
-  background-color: #A36060;
+    background-color: #A36060;
 }
-<h1 class="centered-title">Affinity</h1>
 """
 
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
-
-
-st.title("Affinity")
-st.title('_Streamlit_ is :blue[cool] :sunglasses:')
-st.write("Predicting the right Ad")
+st.markdown("<h1 class='centered-title'>Affinity</h1>", unsafe_allow_html=True)
 
 # Create a form with a submit button
 # with st.form(image.pngkey='my_form'):
