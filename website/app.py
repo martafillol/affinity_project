@@ -17,14 +17,13 @@ st.set_page_config(
 )
 
 CSS = """
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Hammersmith+One&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
 body {
     background-color: #f0f0f0; /* Replace with your desired color */
 }
 
 h1, h2, h3 {
-    font-family: "Hammersmith One", sans-serif;
+    font-family: "Varela Round", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
