@@ -44,7 +44,7 @@ p {
     font-optical-sizing: auto;
     font-weight: 100;
     font-style: normal;
-    color: white;
+    color: black;
     font-size: 1rem;
 }
 
