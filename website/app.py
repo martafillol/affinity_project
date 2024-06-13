@@ -152,7 +152,9 @@ with st.form(key='my_form'):
     st.write("Fill in the form and press submit to go to the Creative Demo page")
     user_input = st.text_input(label="Enter text here", max_chars=200)
     url = user_input
-    button = st.form_submit_button("Insert banner")
+    st.markdown('<div class="centered-button">', unsafe_allow_html=True)
+    button = st.form_submit_button("Submit")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 def inject_banner(url, banner_path, output_file, width, height):
     chrome_options = Options()
