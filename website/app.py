@@ -216,7 +216,7 @@ if button:
     avg_age_of_cluster = response[1]
     top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
-    cluster = response[1]
+    cluster = response[0]
     st.write(cluster)
 
     if cluster == 0:
