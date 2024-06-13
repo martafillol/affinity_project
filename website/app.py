@@ -190,11 +190,11 @@ if button:
         #st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
     else:
             st.write("No image was generated.")
-
+image_path = "website/banners/Design-PNG-Picture.png"
+st.image(image_path, caption='', use_column_width=True)
 
 st.markdown("<br><br><br>", unsafe_allow_html=True)
-image_path = "website/banners/Design-PNG-Picture.png"  # Make sure this path is correct relative to your script
-st.image(image_path, caption='', use_column_width=True)
+
 
 ##################################################################################
 #--------------------------------------------------------------------------------#
