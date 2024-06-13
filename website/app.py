@@ -217,6 +217,7 @@ if button:
     top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
     cluster = response[1]
+    st.write(cluster)
 
     if cluster == 0:
         banner_path = banner_path[0]
@@ -224,6 +225,8 @@ if button:
         banner_path = banner_path[1]
     elif cluster == 2:
         banner_path = banner_path[2]
+
+    st.write(banner_path)
 
     injected = inject_banner(url, banner_path, output_file, width, height)
 
