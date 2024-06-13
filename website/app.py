@@ -61,7 +61,7 @@ st.title("Affinity")
 st.write("Predicting the right Ad")
 
 # Create a form with a submit button
-# with st.form(key='my_form'):
+# with st.form(image.pngkey='my_form'):
 
 #     st.write("Fill in the form and press submit to go to the Creative Demo page")
 #     user_input = st.text_input(label="Enter text here", max_chars=200)
@@ -138,6 +138,14 @@ st.write("Predicting the right Ad")
 ##################################################################################
 
 # Function to inject a banner image above the first <h1> element in a given URL and take a screenshot with predefined resolution
+
+
+with st.form(key='my_form'):
+    st.write("Fill in the form and press submit to go to the Creative Demo page")
+    user_input = st.text_input(label="Enter text here", max_chars=200)
+    url = user_input
+    button = st.form_submit_button("Insert banner")
+
 def inject_banner(url, banner_path, output_file, width, height):
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run in headless mode for testing
@@ -197,17 +205,10 @@ def inject_banner(url, banner_path, output_file, width, height):
             driver.quit()
 
 
-banner_path = "banners/image.png"
+banner_path = ["banners/YOUNG.png","banners/MATURE.png","banners/AMBITIOUS.png"]
 output_file = "injected_banner_screenshot.png"
 width = 728
 height = 1080
-
-with st.form(key='my_form'):
-    st.write("Fill in the form and press submit to go to the Creative Demo page")
-    user_input = st.text_input(label="Enter text here", max_chars=200)
-    url = user_input
-    button = st.form_submit_button("Insert banner")
-
 
 if button:
     response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
@@ -218,11 +219,11 @@ if button:
     cluster = response[1]
 
     if cluster == 0:
-        banner_path = "banners/YOUNG.png"
+        banner_path = banner_path[0]
     elif cluster == 1:
-        banner_path = "banners/MATURE.png"
+        banner_path = banner_path[1]
     elif cluster == 2:
-        banner_path = "banners/AMBITIOUS.png"
+        banner_path = banner_path[2]
 
     injected = inject_banner(url, banner_path, output_file, width, height)
 
