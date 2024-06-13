@@ -10,6 +10,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.os_manager import ChromeType
 import time
 import base64
+st.set_page_config(
+    page_title="Affinity at Scale",
+    page_icon="🪲",
+    layout="centered",
+)
 
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
