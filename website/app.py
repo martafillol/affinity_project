@@ -213,17 +213,6 @@ with st.form(key='my_form'):
         top_5_other_interests = re.findall(r'\b[^\W\d_]+\b', response["top_5_other_interests"])[:-2]
         cluster = int(response["best_cluster"])
 
-    if cluster == 0:
-        cluster_ai = 0
-    elif cluster == 1:
-        cluster_ai = 0
-    elif cluster == 2:
-        cluster_ai = 1
-    elif cluster == 3:
-        cluster_ai = 1
-    else:
-        cluster_ai = 2
-
     clusters_ai = [
         {
             "age_range": (21, 30),
@@ -256,7 +245,16 @@ with st.form(key='my_form'):
             "description": "Individualist, very disciplined and focused, eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
         }
     ]
-
+    if cluster == 0:
+        cluster_ai = 0
+    elif cluster == 1:
+        cluster_ai = 0
+    elif cluster == 2:
+        cluster_ai = 1
+    elif cluster == 3:
+        cluster_ai = 1
+    else:
+        cluster_ai = 2
     selected_cluster = clusters_ai[cluster_ai]
 
     client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
