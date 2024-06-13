@@ -215,13 +215,13 @@ if button:
     avg_age_of_cluster = response[1]
     top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
-    cluster = response[3]
+    cluster = response[1]
 
-    if cluster == "cluster1":
+    if cluster == 0:
         banner_path = "banners/YOUNG.png"
-    elif cluster == "cluster2":
+    elif cluster == 1:
         banner_path = "banners/MATURE.png"
-    elif cluster == "cluster3":
+    elif cluster == 2:
         banner_path = "banners/AMBITIOUS.png"
 
     injected = inject_banner(url, banner_path, output_file, width, height)
