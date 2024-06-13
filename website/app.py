@@ -15,7 +15,7 @@ st.set_page_config(
     page_icon="🪲",
     layout="centered",
 )
-st.image("website/banners/affinity_logo.png", width=200)
+st.image("website/banners/affinity_logo.png", width=300)
 CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Hammersmith+One&family=Lexend:wght@100..900&family=Varela+Round&display=swap');
 body {
