@@ -31,6 +31,11 @@ h1, h2, h3 {
   font-size: 2rem;
   text-align: justify;
 }
+
+.st-emotion-cache-1jzia57 .e1nzilvr3 {
+    visibility: hidden;
+    display: none;
+}
 .centered-title {
         text-align: center;
         font-size: 2.5em; /* Adjust the font size as needed */
@@ -64,6 +69,7 @@ st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
 
 
 st.title("Affinity")
+st.title('_Streamlit_ is :blue[cool] :sunglasses:')
 st.write("Predicting the right Ad")
 
 # Create a form with a submit button
@@ -223,7 +229,7 @@ if button:
     top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response["top_5_other_interests"])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
     cluster = int(response["best_cluster"])
-    st.write(response)
+
 
     if cluster == 0:
         banner_path = banner_path[0]
@@ -251,6 +257,10 @@ if button:
         st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
     else:
             st.write("No image was generated.")
+
+
+
+
 
 
 
