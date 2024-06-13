@@ -218,11 +218,11 @@ if button:
     cluster = response[3]
 
     if cluster == "cluster1":
-        banner_path = "banners/image.png"
+        banner_path = "banners/YOUNG.png"
     elif cluster == "cluster2":
-        banner_path = "banners/image2.png"
+        banner_path = "banners/MATURE.png"
     elif cluster == "cluster3":
-        banner_path = "banners/image3.png"
+        banner_path = "banners/AMBITIOUS.png"
 
     injected = inject_banner(url, banner_path, output_file, width, height)
 
