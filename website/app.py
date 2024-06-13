@@ -84,7 +84,7 @@ st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_ht
 # Function to inject a banner image above the first <h1> element in a given URL and take a screenshot with predefined resolution
 
 
-with st.form(key='my_form'):
+with st.form(key='my_form_1'):
     st.markdown('<div class="centered-form">', unsafe_allow_html=True)
     st.write("Enter Publisher Url")
     user_input = st.text_input(label="", max_chars=200)
