@@ -235,7 +235,7 @@ if button:
         banner_path = banner_path[3]
 
 
-    injected = inject_banner(url, banner_path[1], output_file, width, height)
+    injected = inject_banner(url, banner_path, output_file, width, height)
 
     if injected:
         st.image(output_file, caption="MMA Banner Screenshot")
