@@ -44,12 +44,18 @@ h1, h2, h3 {
     font-weight: bold;
 }
 
+.centered-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 p {
     font-family: "Lexend", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 100;
     font-style: normal;
-    color: black;
+    color: white;
     font-size: 1rem;
 }
 
@@ -60,12 +66,10 @@ a {
     padding: 15px;
     border-radius: 5px;
     transition: 0.3s ease;
-    display: none;
 }
 
 a:hover {
     background-color: #A36060;
-
 }
 """
 
@@ -154,8 +158,8 @@ st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_ht
 
 
 with st.form(key='my_form'):
-    st.write("Fill in the form and press submit to go to the Creative Demo page")
-    user_input = st.text_input(label="Enter text here", max_chars=200)
+    st.write("Enter Publisher Url")
+    user_input = st.text_input(label="", max_chars=200)
     url = user_input
     st.markdown('<div class="centered-button">', unsafe_allow_html=True)
     button = st.form_submit_button("Submit")
@@ -253,11 +257,11 @@ if button:
     injected = inject_banner(url, banner_path, output_file, width, height)
 
     if injected:
-        st.image(output_file, caption="MMA Banner Screenshot")
         st.success('Analysis complete!')
-        st.write('**Best Fit Interest:**', best_fit_interest)
-        st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
-        st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
+        st.write('**Topic:**', best_fit_interest)
+        st.image(output_file, caption="MMA Banner Screenshot")
+        #st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
+        #st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
     else:
             st.write("No image was generated.")
 
