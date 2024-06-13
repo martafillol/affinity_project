@@ -31,6 +31,11 @@ h1, h2, h3 {
   font-size: 2rem;
   text-align: justify;
 }
+.centered-title {
+        text-align: center;
+        font-size: 2.5em; /* Adjust the font size as needed */
+        font-weight: bold;
+    }
 p {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
@@ -51,6 +56,7 @@ a {
 a:hover {
   background-color: #A36060;
 }
+<h1 class="centered-title">Affinity</h1>
 """
 
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
