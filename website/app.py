@@ -214,7 +214,7 @@ if button:
     response = requests.get("https://affinity-dzgegmrtba-no.a.run.app/process-urls", params={"url_input":url}).json()
     best_fit_interest = response[0]
     avg_age_of_cluster = response[1]
-    best_cluster = response[3]
+    best_cluster = response[2]
     top_5_other_interests = re.findall(r'\b[^\W\d_]+\b',response[2])[:-2]
     injected = inject_banner(url, banner_path, output_file, width, height)
     cluster = response[0]
