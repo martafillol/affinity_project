@@ -154,8 +154,9 @@ st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_ht
 
 
 with st.form(key='my_form'):
-
+    st.write("Fill in the form and press submit to go to the Creative Demo page")
     user_input = st.text_input(label="Enter text here", max_chars=200)
+    url = user_input
     st.markdown('<div class="centered-button">', unsafe_allow_html=True)
     button = st.form_submit_button("Submit")
     st.markdown('</div>', unsafe_allow_html=True)
