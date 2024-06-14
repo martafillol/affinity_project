@@ -173,9 +173,9 @@ if button:
     elif cluster == 1:
         banner_path = banner_path[0]
     elif cluster == 2:
-        banner_path = banner_path[2]
+        banner_path = banner_path[1]
     elif cluster == 3:
-        banner_path = banner_path[2]
+        banner_path = banner_path[1]
     elif cluster == 4:
         banner_path = banner_path[2]
     elif cluster == 5:
