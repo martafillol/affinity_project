@@ -29,6 +29,7 @@ a {
   padding: 15px;
   border-radius: 5px;
   transition: 0.3s ease;
+  border-radius: 5%;
 }
 
 a:hover {

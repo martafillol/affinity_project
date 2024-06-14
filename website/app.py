@@ -45,6 +45,7 @@ h2, h3 {
   margin-bottom: 20px;
   background-color: #d8d8d8;
   padding: 10px;
+  border-radius: 5%;
 }
 
 .centered-button {
@@ -204,7 +205,7 @@ st.markdown("<br><br><br><br><br>", unsafe_allow_html=True)
 ##################################################################################
 
 
-st.markdown("<h2 class='centered-title'>AI generated Add</h2>", unsafe_allow_html=True)
+st.markdown("<h2>AI generated Add</h2>", unsafe_allow_html=True)
 
 with st.form(key='my_form'):
     st.write("")
