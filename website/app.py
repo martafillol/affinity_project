@@ -188,7 +188,9 @@ if button:
 
     if injected:
         st.success('Analysis complete!')
-        st.header('**Topic:**', best_fit_interest)
+        st.write('**Topic:**', best_fit_interest)
+        st.header(f'Topic  {best_fit_interest}')
+
         st.image(output_file, caption="MMA Banner Screenshot")
         #st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
         #st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
