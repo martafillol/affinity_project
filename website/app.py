@@ -41,9 +41,9 @@ h2, h3 {
   text-align: center;
   font-size: 2.5em;
   font-weight: bold;
-  color: #a4fff7;
+  color: #ea6106;
   margin-bottom: 20px;
-  background-color: #d8d8d8;
+  background-color: #c3ffe7;
   padding: 10px;
   border-radius: 10%;
 }
