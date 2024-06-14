@@ -38,9 +38,13 @@ h1, h2, h3 {
 }
 
 .centered-title {
-    text-align: center;
-    font-size: 2.5em;
-    font-weight: bold;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #a4fff7;
+  margin-bottom: 20px;
+  background-color: #d8d8d8;
+  padding: 10px;
 }
 
 .centered-button {

@@ -33,4 +33,14 @@ a {
 
 a:hover {
   background-color: #A36060;
+
+}
+.centered-title {
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #a4fff7;
+  margin-bottom: 20px;
+  background-color: #d8d8d8;
+  padding: 10px;
 }
