@@ -269,9 +269,8 @@ with st.form(key='my_form'):
         Possible interests: {top_5_other_interests},
         Average age: {avg_age_of_cluster},
         Specialize the advertisement in the interest: {best_fit_interest},
-        Cluster name: {selected_cluster['cluster_name']},
         Cluster description: {selected_cluster['description']},
-        Car inspiration: {selected_cluster['car_inspo']} dont add infographics'''
+        Car inspiration: {selected_cluster['car_inspo']} don't add infographics'''
         response = client.images.generate(
             model="dall-e-3",
             prompt=prompt,
