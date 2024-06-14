@@ -39,7 +39,7 @@ h2, h3 {
 
 .centered-title {
   text-align: center;
-  font-size: 2.5em;
+  font-size: 3em;
   font-weight: bold;
   color: #f19137;
   margin-bottom: 20px;
