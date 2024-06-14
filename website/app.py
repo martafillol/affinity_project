@@ -45,7 +45,7 @@ h2, h3 {
   margin-bottom: 20px;
   background-color: #c3ffe7;
   padding: 10px;
-  border-radius: 10%;
+  border-radius: 20%;
 }
 
 .centered-button {
