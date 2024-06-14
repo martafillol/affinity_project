@@ -265,12 +265,12 @@ with st.form(key='my_form'):
         selected_cluster = clusters_ai[cluster_ai]
 
         client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
-        prompt = f'''Create a photographic advertisement image based on these specifications for a car buyers:
+        prompt = f'''Create a photorealistic advertisement image based on these specifications for a car buyers:
         Possible interests: {top_5_other_interests},
         Average age: {avg_age_of_cluster},
         Specialize the advertisement in the interest: {best_fit_interest},
         Cluster description: {selected_cluster['description']},
-        Car inspiration: {selected_cluster['car_inspo']} don't add infographics'''
+        Car inspiration: {selected_cluster['car_inspo']} don't add infographics.Dont write posible interest in the image'''
         response = client.images.generate(
             model="dall-e-3",
             prompt=prompt,
