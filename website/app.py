@@ -23,13 +23,13 @@ body {
 }
 
 h2, h3 {
-    font-family: "Varela Round", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    color: #ea6106;
-    font-size: 2rem;
-    text-align: justify;
+    text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #f19137;
+  margin-bottom: 20px;
+  padding: 10px;
+
 }
 
 .st-emotion-cache-1jzia57 .e1nzilvr3 {
@@ -45,7 +45,7 @@ h2, h3 {
   margin-bottom: 20px;
   background-color: #d8d8d8;
   padding: 10px;
-  border-radius: 5%;
+  border-radius: 10%;
 }
 
 .centered-button {
