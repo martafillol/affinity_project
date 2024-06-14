@@ -227,7 +227,7 @@ with st.form(key='my_form'):
                 "education": ["high school", "college", "associate degree", "bachelor's degree"],
                 "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
                 "income_range": (30000, 80000),
-                "car_inspiration": "car inspire in ibiza model",
+                "car_inspo": "car inspire in ibiza model",
                 "cluster_name": "Young butterflies",
                 "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences."
             },
