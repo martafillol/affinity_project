@@ -67,9 +67,24 @@ a {
     border-radius: 5px;
     transition: 0.3s ease;
 }
-"""
 
+"""
 st.write(f"<style>{CSS}</style>", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
+    .centered-title {
+        text-align: center;
+        font-size: 3em;
+        font-weight: bold;
+        margin: 20px 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+# The banner title
+st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_html=True)
+
 
 st.markdown("<h1 class='centered-title'>Affinity at Scale</h1>", unsafe_allow_html=True)
 
