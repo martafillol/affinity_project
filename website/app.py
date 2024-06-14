@@ -206,11 +206,11 @@ st.markdown("<br><br><br><br><br>", unsafe_allow_html=True)
 ##################################################################################
 
 
-st.markdown("<h2>AI generated Add</h2>", unsafe_allow_html=True)
+st.markdown("<h2>AI generated Ad</h2>", unsafe_allow_html=True)
 
 with st.form(key='my_form'):
     st.write("")
-    user_input = st.text_input(label="Enter text here", max_chars=200)
+    user_input = st.text_input(label="Enter Publisher Url", max_chars=200)
     url = user_input
     submit_button = st.form_submit_button(label='Submit')
     if submit_button:
@@ -227,7 +227,7 @@ with st.form(key='my_form'):
                 "education": ["high school", "college", "associate degree", "bachelor's degree"],
                 "family_status": {"Married": 0.30, "Single": 0.70, "Kids": 0.20},
                 "income_range": (30000, 80000),
-                "car_inspo": "https://www.seat.es/coches/ibiza/modelo",
+                "car_inspiration": "car inspire in ibiza model",
                 "cluster_name": "Young butterflies",
                 "description": "The young professionals are very active and aim high. With a cosmopolitan view and urban lifestyle they constantly seek for new experiences."
             },
@@ -237,9 +237,9 @@ with st.form(key='my_form'):
                 "education": ["college", "master's degree", "professional degree"],
                 "family_status": {"Married": 0.60, "Single": 0.40, "Kids": 0.40},
                 "income_range": (40000, 100000),
-                "car_inspo": "https://www.seat.es/coches/arona/modelo",
+                "car_inspo": "car inspire in arona model",
                 "cluster_name": "Mature heroes",
-                "description": "Grounded individualist is reputable, While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+                "description": "Grounded individualist is reputable, While being very disciplined and focused on objectives they seek for a thrilling life and are eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. value nature."
             },
             {
                 "age_range": (35, 49),
@@ -247,9 +247,9 @@ with st.form(key='my_form'):
                 "education": ["high school", "bachelor's degree", "master's degree", "doctorate"],
                 "family_status": {"Married": 0.50, "Single": 0.50, "Kids": 0.50},
                 "income_range": (50000, 150000),
-                "car_inspo": "https://www.cupraofficial.es/coches/leon",
+                "car_inspo": "car inspire in leon model",
                 "cluster_name": "Ambitious rebels",
-                "description": "Individualist, very disciplined and focused, eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban + outdoor lifestyle, value nature."
+                "description": "Individualist, very disciplined and focused, eager to reach a specific status in society. Focused on achieving goals but also taking care of family/pets. Urban."
             }
         ]
         if cluster == 0:
@@ -265,7 +265,7 @@ with st.form(key='my_form'):
         selected_cluster = clusters_ai[cluster_ai]
 
         client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
-        prompt = f'''Create a realistic advertisement image based on these topics for a car product:
+        prompt = f'''Create a photorealistic advertisement image based on these topics for a car product:
         Possible interests: {top_5_other_interests},
         Average age: {avg_age_of_cluster},
         Specialize the advertisement in the interest: {best_fit_interest},
