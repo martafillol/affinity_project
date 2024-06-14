@@ -22,7 +22,7 @@ body {
     background-color: #f0f0f0; /* Replace with your desired color */
 }
 
-h1, h2, h3 {
+h2, h3 {
     font-family: "Varela Round", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
