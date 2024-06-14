@@ -265,7 +265,7 @@ with st.form(key='my_form'):
         selected_cluster = clusters_ai[cluster_ai]
 
         client = OpenAI(api_key=st.secrets['OPENAI_API_KEY'])
-        prompt = f'''Create a realistic advertisement image based on these topics for a car product:
+        prompt = f'''Create a photographic advertisement image based on these specifications for a car buyers:
         Possible interests: {top_5_other_interests},
         Average age: {avg_age_of_cluster},
         Specialize the advertisement in the interest: {best_fit_interest},
