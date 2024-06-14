@@ -171,7 +171,7 @@ if button:
     if cluster == 0:
         banner_path = banner_path[0]
     elif cluster == 1:
-        banner_path = banner_path[1]
+        banner_path = banner_path[0]
     elif cluster == 2:
         banner_path = banner_path[2]
     elif cluster == 3:
@@ -188,7 +188,7 @@ if button:
 
     if injected:
         st.success('Analysis complete!')
-        st.write('**Topic:**', best_fit_interest)
+        st.header('**Topic:**', best_fit_interest)
         st.image(output_file, caption="MMA Banner Screenshot")
         #st.write('**Average Age of Cluster:**', int(avg_age_of_cluster))
         #st.write('**Top Other Interests:**', ', '.join(top_5_other_interests))
