@@ -41,7 +41,7 @@ h2, h3 {
   text-align: center;
   font-size: 2.5em;
   font-weight: bold;
-  color: #ea6106;
+  color: #f19137;
   margin-bottom: 20px;
 
   padding: 10px;
@@ -67,7 +67,6 @@ a {
     text-decoration: none;
     display: none;
     color: white;
-    background-color: #ea6106;
     padding: 15px;
     border-radius: 5px;
     transition: 0.3s ease;
