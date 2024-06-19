@@ -17,7 +17,11 @@ def root():
 @app.get("/process-urls/")
 async def process_urls(url_input: str):
     best_fit_interest, best_cluster, avg_age_of_cluster, top_5_other_interests = main(url_input)
-    return best_fit_interest, best_cluster, int(avg_age_of_cluster), str(top_5_other_interests)
+    return {"best_fit_interest": best_fit_interest,
+            "best_cluster": int(best_cluster),
+            "avg_age_of_cluster": int(avg_age_of_cluster),
+            "top_5_other_interests": str(top_5_other_interests)
+            }
 
 
 
