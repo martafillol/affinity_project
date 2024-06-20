@@ -1,12 +1,15 @@
 bs4
+FastAPI
+uvicorn
 openai
 sentence-transformers
 nltk
-spacymoji
+spacy
+streamlit
 wheel
 nbresult
 pandas
-sklearn
+scikit-learn
 requests
 xmltodict
 matplotlib
@@ -29,3 +32,4 @@ pyarrow
 streamlit
 seleniumbase
 webdriver-manager
+spacymoji

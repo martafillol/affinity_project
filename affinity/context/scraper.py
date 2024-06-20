@@ -1,8 +1,10 @@
+
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import spacy
 from spacymoji import Emoji
+from affinity.context.preprocessing import text_cleaner
 
 url = 'https://medium.com/@getgoing.ca/the-ultimate-guide-to-choosing-the-perfect-car-19747eec95e'
 
@@ -24,18 +26,6 @@ def scrape(url):
     return scraped_data
 
 scrape_data = scrape(url)
-
-def text_cleaner(text):
-    serie_joined = ' '.join(text)
-    doc = nlp(serie_joined)
-    clean_words = []
-    for each in doc:
-        if each._.is_emoji or each.is_digit or each.like_url or each.like_email or each.is_punct:
-            continue
-        else:
-            clean_words.append(each)
-
-    return clean_words
 
 def scraper(url):
     scr = scrape(url)
