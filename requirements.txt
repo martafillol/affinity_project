@@ -26,3 +26,6 @@ google-cloud-bigquery
 google-cloud-storage
 db-dtypes
 pyarrow
+streamlit
+seleniumbase
+webdriver-manager

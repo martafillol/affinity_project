@@ -1,10 +1,12 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.DS_Store
 *.py[cod]
 *$py.class
 .DS_Store
 data/
-notebooks/
+*.csv
+*.ipynb
 # C extensions
 *.so
 # Jupyter Notebooks
@@ -136,12 +138,11 @@ venv.bak/
 # Spyder project settings
 .spyderproject
 .spyproject
-
+notebook/
 # Rope project settings
 .ropeproject
+/notebook
 
-# mkdocs documentation
-/site
 
 # mypy
 .mypy_cache/
@@ -163,3 +164,5 @@ snippets.ipynb/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+parse_test.py
