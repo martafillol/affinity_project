@@ -11,7 +11,7 @@ from webdriver_manager.core.os_manager import ChromeType
 import time
 import base64
 st.set_page_config(
-    page_title="🎯 Affinity at Scale",
+    page_title="Affinity at Scale",
     page_icon="🎯",
     layout="centered",
 )
